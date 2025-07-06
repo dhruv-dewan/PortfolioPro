@@ -1,0 +1,499 @@
+{
+    "account": {
+      "id": "f0902c72-74fc-4cc6-9132-213a4e7d932c",
+      "brokerage_authorization": "b5c87c9d-be36-4684-b377-2ad167307ce6",
+      "portfolio_group": "0db800f0-7795-4230-8bd3-2e0462939edd",
+      "name": "Robinhood Individual",
+      "number": "964211833",
+      "institution_name": "Robinhood",
+      "meta": {
+        "type": "margin",
+        "deactivated": false,
+        "deposit_halted": false,
+        "institution_name": "Robinhood",
+        "withdrawal_halted": false,
+        "brokerage_account_type": "Individual",
+        "only_position_closing_trades": false
+      },
+      "cash_restrictions": [],
+      "created_date": "2025-06-29T00:45:50.594512Z",
+      "sync_status": {
+        "holdings": {
+          "last_successful_sync": "2025-06-29T00:45:53.329979+00:00",
+          "initial_sync_completed": true
+        },
+        "transactions": {
+          "last_successful_sync": "2025-06-28",
+          "first_transaction_date": "2024-03-07",
+          "initial_sync_completed": true
+        }
+      },
+      "balance": {
+        "total": {
+          "amount": 208.90643279,
+          "currency": "USD"
+        }
+      },
+      "raw_data": null,
+      "raw_type": "INDIVIDUAL",
+      "status": null
+    },
+    "positions": [
+      {
+        "symbol": {
+          "symbol": {
+            "id": "2ef01a39-bf0d-4183-bfe8-222f7769c7a4",
+            "symbol": "CRCL",
+            "description": "Symbol not found",
+            "currency": {
+              "code": "USD",
+              "name": "US Dollar",
+              "id": "57f81c53-bdda-45a7-a51f-032afd1ae41b"
+            },
+            "exchange": {
+              "id": "26c6aa2d-7733-4808-a29b-8fe6750c6d70",
+              "code": "PINX",
+              "mic_code": "PINX",
+              "name": "Pink Sheets",
+              "suffix": null,
+              "timezone": "America/New_York",
+              "start_time": "09:30:00",
+              "close_time": "17:00:00"
+            },
+            "currencies": [],
+            "type": {
+              "id": "515c27d1-8471-4dec-a234-af12184c51d4",
+              "code": "cs",
+              "description": "Common Stock",
+              "is_supported": true
+            },
+            "raw_symbol": "CRCL",
+            "logo_url": null,
+            "figi_code": null,
+            "figi_instrument": null
+          },
+          "id": "02dd1565-828b-47ca-8584-d5c4745157b1",
+          "description": "",
+          "local_id": "",
+          "security_type": {},
+          "listing_exchange": {},
+          "is_quotable": true,
+          "is_tradable": false
+        },
+        "price": 180.2505,
+        "open_pnl": 39.2687,
+        "fractional_units": 0.54967,
+        "currency": {
+          "code": "USD",
+          "name": "US Dollar",
+          "id": "57f81c53-bdda-45a7-a51f-032afd1ae41b"
+        },
+        "units": 0.54967,
+        "average_purchase_price": 108.81
+      },
+      {
+        "symbol": {
+          "symbol": {
+            "id": "7abb9f5f-c2b1-41ec-8e29-1601ffececd4",
+            "symbol": "CHYM",
+            "description": "CHIME FINANCIAL INC-CL A",
+            "currency": {
+              "code": "USD",
+              "name": "US Dollar",
+              "id": "57f81c53-bdda-45a7-a51f-032afd1ae41b"
+            },
+            "exchange": {
+              "id": "ff4b2ffc-5a0e-4471-9cf5-95c0c30cdedd",
+              "code": "NASDAQ",
+              "mic_code": "XNAS",
+              "name": "NASDAQ",
+              "suffix": null,
+              "timezone": "America/New_York",
+              "start_time": "09:30:00",
+              "close_time": "16:00:00"
+            },
+            "currencies": [],
+            "type": {
+              "id": "515c27d1-8471-4dec-a234-af12184c51d4",
+              "code": "cs",
+              "description": "Common Stock",
+              "is_supported": true
+            },
+            "raw_symbol": "CHYM",
+            "logo_url": null,
+            "figi_code": null,
+            "figi_instrument": null
+          },
+          "id": "011a1e7c-87ee-4f23-98b7-96149271c73b",
+          "description": "",
+          "local_id": "",
+          "security_type": {},
+          "listing_exchange": {},
+          "is_quotable": true,
+          "is_tradable": true
+        },
+        "price": 33.055,
+        "open_pnl": 3.1906,
+        "fractional_units": 0.73943,
+        "currency": {
+          "code": "USD",
+          "name": "US Dollar",
+          "id": "57f81c53-bdda-45a7-a51f-032afd1ae41b"
+        },
+        "units": 0.73943,
+        "average_purchase_price": 28.74
+      },
+      {
+        "symbol": {
+          "symbol": {
+            "id": "bbf3e439-e132-4f23-aaf2-ebe601bb7d9c",
+            "symbol": "SHOP",
+            "description": "Shopify Inc.",
+            "currency": {
+              "code": "USD",
+              "name": "US Dollar",
+              "id": "57f81c53-bdda-45a7-a51f-032afd1ae41b"
+            },
+            "exchange": {
+              "id": "ff4b2ffc-5a0e-4471-9cf5-95c0c30cdedd",
+              "code": "NASDAQ",
+              "mic_code": "XNAS",
+              "name": "NASDAQ",
+              "suffix": null,
+              "timezone": "America/New_York",
+              "start_time": "09:30:00",
+              "close_time": "16:00:00"
+            },
+            "currencies": [],
+            "type": {
+              "id": "515c27d1-8471-4dec-a234-af12184c51d4",
+              "code": "cs",
+              "description": "Common Stock",
+              "is_supported": true
+            },
+            "raw_symbol": "SHOP",
+            "logo_url": "https://api.twelvedata.com/logo/shopify.com",
+            "figi_code": "BBG008HBDB64",
+            "figi_instrument": {
+              "figi_code": "BBG008HBDB64",
+              "figi_share_class": "BBG004DW5NC7"
+            }
+          },
+          "id": "e1e9fb86-1bdf-4b4d-a49e-61a3f84c9cdd",
+          "description": "",
+          "local_id": "",
+          "security_type": {},
+          "listing_exchange": {},
+          "is_quotable": true,
+          "is_tradable": true
+        },
+        "price": 113.67,
+        "open_pnl": 3.4867,
+        "fractional_units": 0.47054,
+        "currency": {
+          "code": "USD",
+          "name": "US Dollar",
+          "id": "57f81c53-bdda-45a7-a51f-032afd1ae41b"
+        },
+        "units": 0.47054,
+        "average_purchase_price": 106.26
+      }
+    ],
+    "balances": [
+      {
+        "currency": {
+          "code": "USD",
+          "name": "US Dollar",
+          "id": "57f81c53-bdda-45a7-a51f-032afd1ae41b"
+        },
+        "cash": 31.9,
+        "buying_power": 31.9
+      }
+    ],
+    "orders": [
+      {
+        "brokerage_order_id": "685f097e-b561-4823-aec0-117703ef171c",
+        "status": "QUEUED",
+        "symbol": "e1e9fb86-1bdf-4b4d-a49e-61a3f84c9cdd",
+        "universal_symbol": {
+          "id": "bbf3e439-e132-4f23-aaf2-ebe601bb7d9c",
+          "symbol": "SHOP",
+          "description": "Shopify Inc.",
+          "currency": {
+            "code": "USD",
+            "name": "US Dollar",
+            "id": "57f81c53-bdda-45a7-a51f-032afd1ae41b"
+          },
+          "exchange": {
+            "id": "ff4b2ffc-5a0e-4471-9cf5-95c0c30cdedd",
+            "code": "NASDAQ",
+            "mic_code": "XNAS",
+            "name": "NASDAQ",
+            "suffix": null,
+            "timezone": "America/New_York",
+            "start_time": "09:30:00",
+            "close_time": "16:00:00"
+          },
+          "currencies": [],
+          "type": {
+            "id": "515c27d1-8471-4dec-a234-af12184c51d4",
+            "code": "cs",
+            "description": "Common Stock",
+            "is_supported": true
+          },
+          "raw_symbol": "SHOP",
+          "logo_url": "https://api.twelvedata.com/logo/shopify.com",
+          "figi_code": "BBG008HBDB64",
+          "figi_instrument": {
+            "figi_code": "BBG008HBDB64",
+            "figi_share_class": "BBG004DW5NC7"
+          }
+        },
+        "quote_universal_symbol": null,
+        "quote_currency": null,
+        "option_symbol": null,
+        "action": "SELL",
+        "total_quantity": "0.470540000",
+        "open_quantity": "0.47",
+        "canceled_quantity": "0.00",
+        "filled_quantity": "0.000000000",
+        "execution_price": null,
+        "limit_price": null,
+        "stop_price": null,
+        "order_type": "Market",
+        "time_in_force": "Day",
+        "time_placed": "2025-06-27T21:13:34.399880Z",
+        "time_updated": "2025-06-27T21:13:34.668335Z",
+        "time_executed": null,
+        "expiry_date": null,
+        "child_brokerage_order_ids": null
+      },
+      {
+        "brokerage_order_id": "685d470e-e9c2-4a37-866f-8000911566cc",
+        "status": "EXECUTED",
+        "symbol": "011a1e7c-87ee-4f23-98b7-96149271c73b",
+        "universal_symbol": {
+          "id": "7abb9f5f-c2b1-41ec-8e29-1601ffececd4",
+          "symbol": "CHYM",
+          "description": "CHIME FINANCIAL INC-CL A",
+          "currency": {
+            "code": "USD",
+            "name": "US Dollar",
+            "id": "57f81c53-bdda-45a7-a51f-032afd1ae41b"
+          },
+          "exchange": {
+            "id": "ff4b2ffc-5a0e-4471-9cf5-95c0c30cdedd",
+            "code": "NASDAQ",
+            "mic_code": "XNAS",
+            "name": "NASDAQ",
+            "suffix": null,
+            "timezone": "America/New_York",
+            "start_time": "09:30:00",
+            "close_time": "16:00:00"
+          },
+          "currencies": [],
+          "type": {
+            "id": "515c27d1-8471-4dec-a234-af12184c51d4",
+            "code": "cs",
+            "description": "Common Stock",
+            "is_supported": true
+          },
+          "raw_symbol": "CHYM",
+          "logo_url": null,
+          "figi_code": null,
+          "figi_instrument": null
+        },
+        "quote_universal_symbol": null,
+        "quote_currency": null,
+        "option_symbol": null,
+        "action": "SELL",
+        "total_quantity": "1.000000000",
+        "open_quantity": "0.00",
+        "canceled_quantity": "0.00",
+        "filled_quantity": "1.000000000",
+        "execution_price": "31.9000000000",
+        "limit_price": "30.4000000000",
+        "stop_price": null,
+        "order_type": "Limit",
+        "time_in_force": "Day",
+        "time_placed": "2025-06-26T13:11:42.406496Z",
+        "time_updated": "2025-06-26T13:11:42.898389Z",
+        "time_executed": "2025-06-26T13:11:42.703000Z",
+        "expiry_date": null,
+        "child_brokerage_order_ids": null
+      },
+      {
+        "brokerage_order_id": "6856fd32-f64e-4718-96bb-84999745896f",
+        "status": "EXECUTED",
+        "symbol": "e1e9fb86-1bdf-4b4d-a49e-61a3f84c9cdd",
+        "universal_symbol": {
+          "id": "bbf3e439-e132-4f23-aaf2-ebe601bb7d9c",
+          "symbol": "SHOP",
+          "description": "Shopify Inc.",
+          "currency": {
+            "code": "USD",
+            "name": "US Dollar",
+            "id": "57f81c53-bdda-45a7-a51f-032afd1ae41b"
+          },
+          "exchange": {
+            "id": "ff4b2ffc-5a0e-4471-9cf5-95c0c30cdedd",
+            "code": "NASDAQ",
+            "mic_code": "XNAS",
+            "name": "NASDAQ",
+            "suffix": null,
+            "timezone": "America/New_York",
+            "start_time": "09:30:00",
+            "close_time": "16:00:00"
+          },
+          "currencies": [],
+          "type": {
+            "id": "515c27d1-8471-4dec-a234-af12184c51d4",
+            "code": "cs",
+            "description": "Common Stock",
+            "is_supported": true
+          },
+          "raw_symbol": "SHOP",
+          "logo_url": "https://api.twelvedata.com/logo/shopify.com",
+          "figi_code": "BBG008HBDB64",
+          "figi_instrument": {
+            "figi_code": "BBG008HBDB64",
+            "figi_share_class": "BBG004DW5NC7"
+          }
+        },
+        "quote_universal_symbol": null,
+        "quote_currency": null,
+        "option_symbol": null,
+        "action": "BUY",
+        "total_quantity": "0.470540000",
+        "open_quantity": "0.00",
+        "canceled_quantity": "0.00",
+        "filled_quantity": "0.470540000",
+        "execution_price": "106.2600000000",
+        "limit_price": "106.9000000000",
+        "stop_price": null,
+        "order_type": "Market",
+        "time_in_force": "Day",
+        "time_placed": "2025-06-21T18:42:58.062803Z",
+        "time_updated": "2025-06-23T13:39:13.804103Z",
+        "time_executed": "2025-06-23T13:30:00.761000Z",
+        "expiry_date": null,
+        "child_brokerage_order_ids": null
+      },
+      {
+        "brokerage_order_id": "6856f01f-c533-4769-9af8-69ad49658980",
+        "status": "EXECUTED",
+        "symbol": "011a1e7c-87ee-4f23-98b7-96149271c73b",
+        "universal_symbol": {
+          "id": "7abb9f5f-c2b1-41ec-8e29-1601ffececd4",
+          "symbol": "CHYM",
+          "description": "CHIME FINANCIAL INC-CL A",
+          "currency": {
+            "code": "USD",
+            "name": "US Dollar",
+            "id": "57f81c53-bdda-45a7-a51f-032afd1ae41b"
+          },
+          "exchange": {
+            "id": "ff4b2ffc-5a0e-4471-9cf5-95c0c30cdedd",
+            "code": "NASDAQ",
+            "mic_code": "XNAS",
+            "name": "NASDAQ",
+            "suffix": null,
+            "timezone": "America/New_York",
+            "start_time": "09:30:00",
+            "close_time": "16:00:00"
+          },
+          "currencies": [],
+          "type": {
+            "id": "515c27d1-8471-4dec-a234-af12184c51d4",
+            "code": "cs",
+            "description": "Common Stock",
+            "is_supported": true
+          },
+          "raw_symbol": "CHYM",
+          "logo_url": null,
+          "figi_code": null,
+          "figi_instrument": null
+        },
+        "quote_universal_symbol": null,
+        "quote_currency": null,
+        "option_symbol": null,
+        "action": "BUY",
+        "total_quantity": "1.739430000",
+        "open_quantity": "0.00",
+        "canceled_quantity": "0.00",
+        "filled_quantity": "1.739430000",
+        "execution_price": "28.7450000000",
+        "limit_price": "29.5900000000",
+        "stop_price": null,
+        "order_type": "Market",
+        "time_in_force": "Day",
+        "time_placed": "2025-06-21T17:47:11.486176Z",
+        "time_updated": "2025-06-23T13:39:02.515363Z",
+        "time_executed": "2025-06-23T13:30:03.942000Z",
+        "expiry_date": null,
+        "child_brokerage_order_ids": null
+      },
+      {
+        "brokerage_order_id": "684b6d1c-e6c2-4ea6-888e-59a8212d4a62",
+        "status": "EXECUTED",
+        "symbol": "02dd1565-828b-47ca-8584-d5c4745157b1",
+        "universal_symbol": {
+          "id": "2ef01a39-bf0d-4183-bfe8-222f7769c7a4",
+          "symbol": "CRCL",
+          "description": "Symbol not found",
+          "currency": {
+            "code": "USD",
+            "name": "US Dollar",
+            "id": "57f81c53-bdda-45a7-a51f-032afd1ae41b"
+          },
+          "exchange": {
+            "id": "26c6aa2d-7733-4808-a29b-8fe6750c6d70",
+            "code": "PINX",
+            "mic_code": "PINX",
+            "name": "Pink Sheets",
+            "suffix": null,
+            "timezone": "America/New_York",
+            "start_time": "09:30:00",
+            "close_time": "17:00:00"
+          },
+          "currencies": [],
+          "type": {
+            "id": "515c27d1-8471-4dec-a234-af12184c51d4",
+            "code": "cs",
+            "description": "Common Stock",
+            "is_supported": true
+          },
+          "raw_symbol": "CRCL",
+          "logo_url": null,
+          "figi_code": null,
+          "figi_instrument": null
+        },
+        "quote_universal_symbol": null,
+        "quote_currency": null,
+        "option_symbol": null,
+        "action": "BUY",
+        "total_quantity": "0.549670000",
+        "open_quantity": "0.00",
+        "canceled_quantity": "0.00",
+        "filled_quantity": "0.549670000",
+        "execution_price": "108.8100000000",
+        "limit_price": "107.5100000000",
+        "stop_price": null,
+        "order_type": "Market",
+        "time_in_force": "Day",
+        "time_placed": "2025-06-13T00:13:16.887029Z",
+        "time_updated": "2025-06-13T13:35:32.898068Z",
+        "time_executed": "2025-06-13T13:30:01.081000Z",
+        "expiry_date": null,
+        "child_brokerage_order_ids": null
+      }
+    ],
+    "cache_timestamp": "2025-06-29T00:45:53.306467Z",
+    "cache_expiry": "2025-06-29T00:46:23.306467Z",
+    "cache_expired": true,
+    "option_positions": [],
+    "total_value": {
+      "currency": "USD",
+      "value": 208.906432785
+    }
+  }
