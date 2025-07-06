@@ -3,6 +3,7 @@ from snaptrade_client import SnapTrade
 import os
 from dotenv import load_dotenv
 from pprint import pprint
+from localInsights import localInsights, _format_snapshot_for_llm
 
 load_dotenv()
 
@@ -20,6 +21,6 @@ test_user.pull_connected_brokerage_accounts(snaptrade_client)
 
 test_user.pull_account_holdings(snaptrade_client, "Robinhood Individual")
 
-small_snapshot_formatted = test_user.format_portfolio_summary("Robinhood Individual")
+small_snapshot_formatted = test_user.small_holdings_snapshot("Robinhood Individual")
 
-print(small_snapshot_formatted)
+print(_format_snapshot_for_llm(small_snapshot_formatted))

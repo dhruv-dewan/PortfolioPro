@@ -19,6 +19,9 @@ class User:
         
     def pull_connected_brokerage_accounts(self, snaptrade_client: SnapTrade) -> bool:
         """Pull connected brokerage accounts for the user and update the hashtable.
+
+        Args:
+            snaptrade_client: SnapTrade client instance
         
         This function should retrieve all brokerage accounts associated with the user
         and store them in the brokerage_accounts dictionary with institution_name as keys and account_id as values.
@@ -161,7 +164,7 @@ class User:
     def small_holdings_snapshot(self, account_name: str) -> dict:
         """Create a small, structured holdings snapshot for AI analysis.
         
-        Note: This simplified snapshot does not include option positions as of now.
+        Note: This simplified snapshot does not include option positions as of now. NO OPTIONS YET.
         
         Args:
             account_name: Name of the account to get snapshot for
