@@ -12,6 +12,8 @@ def localInsights(small_snapshot) -> str:
     Returns:
         str: Formatted insights about the portfolio
     """
+
+    # USING DEEPSEEK R1 MODEL
     model = ChatOllama(model="deepseek-r1")
 
     # Format the snapshot as a readable string for the model
