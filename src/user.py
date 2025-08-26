@@ -2,6 +2,7 @@ from snaptrade_client import SnapTrade
 from datetime import datetime
 from typing import Dict, List, Optional
 from pydantic import SecretStr
+import finnhub
 
 class User:
     def __init__(self, userId: str, userSecret: str, brokerage_accounts: dict = None) -> None:
@@ -100,6 +101,7 @@ class User:
         for position in holdings_data.get("positions", []):
             position_data = {
                 "symbol": position.get("symbol", {}).get("symbol", {}).get("symbol"),
+                "company_name": "Name not found",
                 "description": position.get("symbol", {}).get("description"),
                 "units": position.get("units"),
                 "fractional_units": position.get("fractional_units"),
@@ -161,6 +163,50 @@ class User:
         
         return snapshot
         
+    def update_holdings_names(self, finnhub_client: finnhub.Client) -> bool:
+        """Update the user's holdings with the latest company names from the Finnhub API.
+        
+        Args:
+            finnhub_client: Initialized Finnhub client instance
+            
+        Returns:
+            bool: True if successful, False otherwise
+        """
+        try:
+            for account_name in self.holdings:
+                # Update regular positions
+                for position in self.holdings[account_name]["positions"]:
+                    symbol = position["symbol"]
+                    try:
+                        print(f"Fetching company name for {symbol}...")
+                        company_profile = finnhub_client.company_profile2(symbol=symbol)
+                        print(f"Received profile: {company_profile}")
+                        if company_profile and "name" in company_profile:
+                            position["company_name"] = company_profile["name"]
+                        else:
+                            position["company_name"] = f"Unknown ({symbol})"
+                    except Exception as e:
+                        print(f"Error fetching company name for {symbol}: {e}")
+                
+                # Update option positions
+                for option_position in self.holdings[account_name]["option_positions"]:
+                    underlying_symbol = option_position["underlying_symbol"]
+                    try:
+                        underlying_profile = finnhub_client.company_profile2(symbol=underlying_symbol)
+                        if underlying_profile and "name" in underlying_profile:
+                            option_position["underlying_company_name"] = underlying_profile["name"]
+                        else:
+                            option_position["underlying_company_name"] = f"Unknown ({underlying_symbol})"
+                    except Exception as e:
+                        print(f"Error fetching underlying company name for {underlying_symbol}: {e}")
+            
+            return True
+            
+        except Exception as e:
+            print(f"Error updating holdings names: {e}")
+            return False
+
+
     def small_holdings_snapshot(self, account_name: str) -> dict:
         """Create a small, structured holdings snapshot for AI analysis.
         
@@ -193,6 +239,7 @@ class User:
         for position in holdings_data.get("positions", []):
             position_data = {
                 "symbol": position.get("symbol"),
+                "company_name": position.get("company_name", position.get("symbol")),
                 "units": position.get("units"),
                 "current_price": position.get("current_price"),
                 "open_pnl": position.get("open_pnl")
@@ -225,7 +272,7 @@ class User:
         
         # Account Balances
         balances = snapshot['balances']
-        summary.append("📊 ACCOUNT BALANCES")
+        summary.append("ACCOUNT BALANCES")
         summary.append("-" * 20)
         summary.append(f"Total Balance: ${balances['total_balance']:,.2f}")
         summary.append(f"Cash Available: ${balances['cash_available']:,.2f}")
@@ -237,7 +284,7 @@ class User:
         # Positions
         positions = snapshot['positions']
         if positions:
-            summary.append("📈 POSITIONS")
+            summary.append("POSITIONS")
             summary.append("-" * 20)
             
             # Calculate total portfolio value from positions
@@ -246,6 +293,7 @@ class User:
             
             for position in positions:
                 symbol = position['symbol']
+                company_name = position['company_name']
                 units = position['units']
                 current_price = position['current_price']
                 open_pnl = position['open_pnl']
@@ -255,7 +303,8 @@ class User:
                 pnl_sign = "+" if open_pnl >= 0 else ""
                 pnl_indicator = "🟢" if open_pnl >= 0 else "🔴"
                 
-                summary.append(f"{symbol}:")
+                summary.append(f"{company_name}:")
+                summary.append(f"  Ticker: {symbol}")
                 summary.append(f"  Units: {units:,.4f}")
                 summary.append(f"  Current Price: ${current_price:.2f}")
                 summary.append(f"  Position Value: ${position_value:,.2f}")
@@ -263,7 +312,7 @@ class User:
                 summary.append("")
             
             # Portfolio summary
-            summary.append("📋 PORTFOLIO SUMMARY")
+            summary.append("PORTFOLIO SUMMARY")
             summary.append("-" * 20)
             summary.append(f"Total Positions Value: ${total_position_value:,.2f}")
             summary.append(f"Total P&L: {'+' if total_pnl >= 0 else ''}${total_pnl:.2f}")
@@ -273,7 +322,7 @@ class User:
                 pnl_percentage = (total_pnl / total_position_value) * 100
                 summary.append(f"P&L %: {'+' if pnl_percentage >= 0 else ''}{pnl_percentage:.2f}%")
         else:
-            summary.append("📈 POSITIONS")
+            summary.append("POSITIONS")
             summary.append("-" * 20)
             summary.append("No positions found")
         

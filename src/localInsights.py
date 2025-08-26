@@ -1,6 +1,11 @@
 from langchain_ollama import ChatOllama
 from langchain_core.prompts import ChatPromptTemplate
 import json
+import re
+
+def remove_think_block(text: str) -> str:
+    return re.sub(r"<think>.*?</think>", "", text, flags=re.DOTALL).strip()
+
 
 def localInsights(small_snapshot) -> str:
     """
@@ -22,23 +27,19 @@ def localInsights(small_snapshot) -> str:
     prompt = ChatPromptTemplate.from_messages([
         ("system", """You are an expert financial analyst specializing in portfolio analysis and investment insights. 
         
-Your task is to analyze a user's investment portfolio snapshot and provide actionable insights. Focus on:
-
-1. **Portfolio Overview**: Summarize the current state and key metrics
-2. **Risk Assessment**: Evaluate diversification, concentration, and potential risks
-3. **Performance Analysis**: Analyze P&L patterns and position performance
-4. **Actionable Recommendations**: Provide specific, actionable advice
-5. **Market Context**: Consider current market conditions in your analysis
+Your task is to briefly take a glance at a user's investment portfolio snapshot and provide specific insights to update them on their portfolio performance.
 
 Be concise but comprehensive. Use bullet points for clarity. If you notice any concerning patterns or opportunities, highlight them prominently.
 
-Format your response with clear sections and use emojis sparingly for visual organization. Do not overwhelm the user, but do not be too brief. Be concise and to the point."""),
+Format your response with clear sections and use no emojis or em dashes. Do not overwhelm the user, this is simply an update they may recieve everyday."""),
         ("user", f"Please analyze this portfolio snapshot and provide insights:\n\n{formatted_snapshot}")
     ])
 
+
     chain = prompt | model
     response = chain.invoke({"small_snapshot": formatted_snapshot})
-    
+
+    response.content = remove_think_block(response.content)
     return response.content
 
 def _format_snapshot_for_llm(snapshot: dict) -> str:

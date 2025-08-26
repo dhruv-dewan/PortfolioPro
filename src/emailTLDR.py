@@ -1,26 +1,32 @@
-from user import User
-from snaptrade_client import SnapTrade
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 import os
 from dotenv import load_dotenv
-from pprint import pprint
-from localInsights import localInsights, _format_snapshot_for_llm
 
 load_dotenv()
 
-snaptrade_client = SnapTrade(
-    client_id=os.getenv("CLIENT_ID"),
-    consumer_key=os.getenv("CONSUMER_KEY"),
-)
+# Configure email info
+smtp_host = os.getenv("SMTP_HOST")
+smtp_port = os.getenv("SMTP_PORT")
+smtp_user = os.getenv("SMTP_USER")
+smtp_pass = os.getenv("SMTP_PASS")
 
-test_user = User(
-    userId=os.getenv("USER_ID"),
-    userSecret=os.getenv("USER_SECRET"),
-)
+sender_email = "insights@dhruvdewan.com"
+receiver_email = "dhruvrdewan@gmail.com"
 
-test_user.pull_connected_brokerage_accounts(snaptrade_client)
+message = MIMEText("Hey, this is a test email.")
 
-test_user.pull_account_holdings(snaptrade_client, "Robinhood Individual")
+message["Subject"] = "Portfolio Update"
+message["From"] = sender_email
+message["To"] = receiver_email
 
-small_snapshot_formatted = test_user.small_holdings_snapshot("Robinhood Individual")
+try:
+    server = smtplib.SMTP_SSL(smtp_host, smtp_port)
+    server.login(smtp_user, smtp_pass)
+    server.send_message(message)
+    server.quit()
+    print("Email sent successfully!")
 
-print(_format_snapshot_for_llm(small_snapshot_formatted))
+except Exception as e:
+    print(f"Error sending email: {e}")
