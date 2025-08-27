@@ -82,15 +82,17 @@ def _format_snapshot_for_llm(snapshot: dict) -> str:
             symbol = position.get('symbol', 'Unknown')
             units = position.get('units', 0)
             current_price = position.get('current_price', 0)
+            avg_price = position.get('average_purchase_price', 0)
             open_pnl = position.get('open_pnl', 0)
             position_value = units * current_price
-            
+
             total_position_value += position_value
             total_pnl += open_pnl
-            
+
             formatted.append(f"  {symbol}:")
             formatted.append(f"    Units: {units:,.4f}")
             formatted.append(f"    Current Price: ${current_price:.2f}")
+            formatted.append(f"    Avg Purchase Price: ${avg_price:.2f}")
             formatted.append(f"    Position Value: ${position_value:,.2f}")
             formatted.append(f"    P&L: {'+' if open_pnl >= 0 else ''}${open_pnl:.2f}")
             formatted.append("")
