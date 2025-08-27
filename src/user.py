@@ -210,7 +210,8 @@ class User:
     def small_holdings_snapshot(self, account_name: str) -> dict:
         """Create a small, structured holdings snapshot for AI analysis.
         
-        Note: This simplified snapshot does not include option positions as of now. NO OPTIONS YET.
+        Note: This simplified snapshot includes each position's average purchase price but
+        does not yet include option positions.
         
         Args:
             account_name: Name of the account to get snapshot for
@@ -234,7 +235,7 @@ class User:
             },
             "positions": []
         }
-        
+
         # Extract only essential position data
         for position in holdings_data.get("positions", []):
             position_data = {
@@ -242,6 +243,7 @@ class User:
                 "company_name": position.get("company_name", position.get("symbol")),
                 "units": position.get("units"),
                 "current_price": position.get("current_price"),
+                "average_purchase_price": position.get("average_purchase_price"),
                 "open_pnl": position.get("open_pnl")
             }
             snapshot["positions"].append(position_data)
